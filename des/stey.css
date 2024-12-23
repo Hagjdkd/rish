@@ -1,0 +1,156 @@
+/* Resetting some base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'MedievalSharp', cursive;
+  display: flex;
+  flex-direction: column; /* Flex column layout to manage content and footer */
+  min-height: 100vh; /* Ensure the body takes at least the full height of the screen */
+  background-color: #f4f4f4;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Main Content Styling */
+.main-content {
+  flex-grow: 1; /* Allows the main content to grow and take available space */
+  padding: 20px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease-in-out;
+  background: url('../uploads/liberator.png') no-repeat center center/cover;
+  background-size: cover;
+  overflow-y: auto; /* Allow vertical scrolling if content exceeds the viewport */
+}
+
+/* Welcome Animation */
+.welcome-message {
+  opacity: 0;
+  animation: slideIn 2s forwards;
+  font-size: 2.5rem;
+  color: #ff9f00;
+  text-align: center;
+ 
+}
+
+@keyframes slideIn {
+  0% {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+/* Cards Container */
+.cards-container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  height: 350px; /* Fixed height for the product card */
+  display: flex; /*Enable flexbox for better image handling*/
+  flex-direction: column; /*Stack image and details vertically*/
+}
+/* Card Styling */
+.card {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%; /* Ensure cards fill their grid cell */
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+
+.card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.card .price {
+  font-size: 1.2rem;
+  color: #f44336;
+  margin-top: 10px;
+}
+
+/* Logout Button Styling */
+.logout-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-message {
+      font-size: 2rem; /* Smaller font size for mobile */
+  }
+
+  .cards-container {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Make cards smaller on mobile */
+  }
+
+  .card {
+      padding: 15px; /* Reduce card padding */
+  }
+
+  .logout-btn {
+      width: 100%; /* Full-width logout button on mobile */
+      font-size: 1rem; /* Smaller text size for the button */
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-message {
+      font-size: 1.5rem; /* Further reduce font size on very small screens */
+      margin-top: 50px; /* Adjust top margin */
+  }
+
+  .cards-container {
+      grid-template-columns: 1fr; /* Stack cards on very s  mall screens */
+  }
+
+  .logout-btn {
+      width: 100%; /* Full-width logout button */
+      font-size: 1rem;
+  }
+}
